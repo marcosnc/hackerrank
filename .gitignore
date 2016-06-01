@@ -1,0 +1,23 @@
+# maven
+target/
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# eclipse
+.classpath
+.settings/
+.project
+.factorypath
+
+# OS X
+.DS_Store
+
+# Windows
+
+# Linux
+bin/
+

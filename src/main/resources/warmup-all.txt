@@ -1,0 +1,184 @@
+---------------------------------------------------------------------------------
+-- Solve Me First
+---------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+  static int solveMeFirst(int a, int b) {
+         return a+b;
+  }
+
+ public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int a;
+        a = in.nextInt();
+        int b;
+        b = in.nextInt();
+        int sum;
+        sum = solveMeFirst(a, b);
+        System.out.println(sum);
+   }
+}
+
+---------------------------------------------------------------------------------
+-- Simple Array Sum
+---------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+  public static void main(String[] args) {
+      Scanner in = new Scanner(System.in);
+      int n = in.nextInt();
+      int sum = 0;
+      for(int i=0; i<n; i++) {
+        sum += in.nextInt();
+      }
+      System.out.println(sum);
+  }
+}
+
+---------------------------------------------------------------------------------
+-- A Very Big Sum
+---------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+  public static void main(String[] args) {
+      Scanner in = new Scanner(System.in);
+      int n = in.nextInt();
+      long sum = 0;
+      for(int i=0; i<n; i++) {
+        sum += in.nextLong();
+      }
+      System.out.println(sum);
+  }
+}
+
+---------------------------------------------------------------------------------
+-- Diagonal Difference
+---------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+  public static void main(String[] args) {
+      Scanner in = new Scanner(System.in);
+      int n = in.nextInt();
+      int diag1 = 0;
+      int diag2 = 0;
+      for(int i=0; i<n; i++) {
+        for(int j=0; j<n; j++) {
+          int item = in.nextInt();
+          if (i==j) {
+            diag1 += item;
+          }
+          if (i+j == n-1) {
+            diag2 += item;
+          }
+        }
+      }
+      int diff = diag1 - diag2;
+      if (diff<0) {
+        diff = -diff;
+      }
+      System.out.println(diff);
+  }
+}
+
+---------------------------------------------------------------------------------
+-- Plus Minus
+---------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+  public static void main(String[] args) {
+      Scanner in = new Scanner(System.in);
+      int n = in.nextInt();
+      int countPlus = 0;
+      int countMinus = 0;
+      for(int i=0; i<n; i++) {
+        int item = in.nextInt();
+        countPlus  += item > 0 ? 1 : 0;
+        countMinus += item < 0 ? 1 : 0;
+      }
+      float ratioPlus  = ((float)countPlus)  / ((float)n);
+      float ratioMinus = ((float)countMinus) / ((float)n);
+      float ratioZero  = ((float)(n-countPlus-countMinus)) / ((float)n);
+      System.out.println(ratioPlus);
+      System.out.println(ratioMinus);
+      System.out.println(ratioZero);
+  }
+}
+
+---------------------------------------------------------------------------------
+-- Staircase
+---------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+  static void printStep(int total, int hashs) {
+    int blanks = total-hashs;
+    for(int i=0; i<blanks; i++) {
+      System.out.print(' ');
+    }
+    for(int i=0; i<hashs; i++) {
+      System.out.print('#');
+    }
+    System.out.println();
+  }
+
+  public static void main(String[] args) {
+      Scanner in = new Scanner(System.in);
+      int n = in.nextInt();
+      for(int i=1; i<=n; i++) {
+        printStep(n,i);
+      }
+  }
+}
+
+---------------------------------------------------------------------------------
+-- Time Conversion
+---------------------------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+// 0123456789
+// HH:MM:SSXX
+
+
+public class Solution {
+
+  public static void main(String[] args) {
+      Scanner in = new Scanner(System.in);
+      String amPmDate = in.next();
+      boolean isAm = amPmDate.endsWith("AM");
+      int hh = Integer.parseInt(amPmDate.substring(0,2));
+      int mm = Integer.parseInt(amPmDate.substring(3,5));
+      int ss = Integer.parseInt(amPmDate.substring(6,8));
+
+      if (isAm) {
+        if (hh==12) {
+          hh=0;
+        }
+      } else {
+        if (hh<12) {
+          hh += 12;
+        }
+      }
+      System.out.println(String.format("%02d:%02d:%02d", hh, mm, ss));
+  }
+}
